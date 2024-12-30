@@ -1,0 +1,36 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main  # 监听 main 分支
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: 
+      name: github-pages
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to server
+      env:
+        SERVER_IP: ${{ secrets.SERVER_IP }}
+        SERVER_USER: ${{ secrets.SERVER_USER }}
+        SERVER_PORT: ${{ secrets.SERVER_PORT }}
+        REPO_URL: https://github.com/Pleiadem/Pleiadem.github.io.git
+        TARGET_DIR: ${{ secrets.TARGET_DIR }}
+      run: |
+        ssh -o StrictHostKeyChecking=no -p $SERVER_PORT $SERVER_USER@$SERVER_IP "
+          if [ -d $TARGET_DIR ]; then
+            rm -rf $TARGET_DIR
+          fi
+          mkdir -p $TARGET_DIR
+          git clone $REPO_URL $TARGET_DIR
+        "
