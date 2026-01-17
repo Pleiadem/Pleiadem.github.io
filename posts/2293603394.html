@@ -198,26 +198,22 @@ btf.addGlobalFn('pjaxSend', () => {
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="1-安装-hexo-renderer-pug-和-hexo-renderer-stylus-失败"><a href="#1-安装-hexo-renderer-pug-和-hexo-renderer-stylus-失败" class="headerlink" title="1. 安装 hexo-renderer-pug 和 hexo-renderer-stylus 失败"></a>1. 安装 <code>hexo-renderer-pug</code> 和 <code>hexo-renderer-stylus</code> 失败</h3><p>使用 npm 安装时，出现以下错误：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm error Cannot read properties of null (reading &#x27;matches&#x27;)</span><br></pre></td></tr></table></figure>
 
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/2293603394/image-20241225161524040.png" class="" title="image-20241225161524040">
-
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/2293603394/image-20241225161524040.png" alt="image-20241225161524040"></p>
 <h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>使用 <code>pnpm</code> 并指定镜像源：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install hexo-renderer-pug hexo-renderer-stylus --save --registry=https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
 
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/2293603394/image-20241225161546869.png" class="" title="image-20241225161546869">
-
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/2293603394/image-20241225161546869.png" alt="image-20241225161546869"></p>
 <p>虽然安装成功，但有一些依赖项被标记为废弃。这些警告不影响使用，可以暂时忽略。</p>
 <hr>
 <h3 id="2-缺少-moment-timezone-模块"><a href="#2-缺少-moment-timezone-模块" class="headerlink" title="2. 缺少 moment-timezone 模块"></a>2. 缺少 <code>moment-timezone</code> 模块</h3><p>运行服务器时，出现模块缺失的错误：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR Script load failed: themes\butterfly\scripts\helpers\page.js</span><br><span class="line">Error: Cannot find module &#x27;moment-timezone&#x27;</span><br></pre></td></tr></table></figure>
 
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/2293603394/image-20241225161336162.png" class="" title="image-20241225161336162">
-
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/2293603394/image-20241225161336162.png" alt="image-20241225161336162"></p>
 <h4 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h4><p>安装缺失的模块：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm i moment-timezone --save</span><br></pre></td></tr></table></figure>
 
 <p>完成后，Hexo 服务器可以正常启动。</p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/2293603394/image-20241225161405162.png" class="" title="image-20241225161405162">
-
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/2293603394/image-20241225161405162.png" alt="image-20241225161405162"></p>
 <hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>迁移 Hexo 博客的完整流程如下：</p>
 <ol>
